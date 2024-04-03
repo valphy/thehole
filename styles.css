@@ -18,12 +18,85 @@ body {
 }
 
 header {
-  padding: 40px;
+  padding: 40px 15vw;
   text-align: center;
 }
 
 h1 {
-  font-size: 12em;
-  color: #fff;
-  text-shadow: none;
+  color: white;
+  text-shadow: 0 0 10px #ffffd9, 0 0 20px #ffffd9, 0 0 30px #ffffb7, 0 0 40px #ffffb7, 0 0 70px #ffff94, 0 0 80px #ffff94, 0 0 100px #ffff70, 0 0 150px #ffff70;
+}
+
+h1 a {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+}
+
+h1 a:hover {
+  text-decoration: none;
+}
+
+
+h1 a:hover span {
+  opacity: 0;
+}
+
+@keyframes glitchText {
+  0% {
+    content: 'valp♪y';
+  }
+  10% {
+    content: 'val♯hy';
+  }
+  20% {
+    content: 'va♭phy';
+  }
+  30% {
+    content: 'v♯lphy';
+  }
+  40% {
+    content: '♪alphy';
+  }
+  50% {
+    content: 'valp♭y';
+  }
+  60% {
+    content: 'val♪hy';
+  }
+  70% {
+    content: 'va♯phy';
+  }
+  80% {
+    content: 'v♭lphy';
+  }
+  90% {
+    content: '♯alphy';
+  }
+}
+
+h1 a:hover::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  white-space: nowrap;
+  animation: glitchText 0.8s steps(1, end) infinite;
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 10px #ffffd9, 0 0 20px #ffffd9, 0 0 30px #ffffb7, 0 0 40px #ffffb7, 0 0 70px #ffff94, 0 0 80px #ffff94, 0 0 100px #ffff70, 0 0 150px #ffff70;
+  }
+  50% {
+    text-shadow: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 12vw;
+  }
 }
