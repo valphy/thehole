@@ -15,6 +15,7 @@ let gameOver = false;
 let enemies = [];
 let lastRenderTime = 0;
 const gameSpeed = 100;
+let bgCache;
 
 // Load the background image
 const backgroundImage = new Image();
@@ -23,19 +24,34 @@ backgroundImage.onload = startGame;
 
 // Start the game when the background image is loaded
 function startGame() {
+    createBgCache();
     resizeCanvas();
     requestAnimationFrame(gameLoop);
 }
 
+function createBgCache() {
+    bgCache = document.createElement('canvas');
+    bgCache.width = backgroundImage.width;
+    bgCache.height = backgroundImage.height;
+    const bctx = bgCache.getContext('2d');
+    bctx.drawImage(backgroundImage, 0, 0);
+}
+
 // Resize the game board canvas based on the window size
 function resizeCanvas() {
-    const maxBoardSize = 600;
-    const boardSize = Math.min(window.innerWidth, window.innerHeight, maxBoardSize);
-    gameBoard.width = boardSize;
-    gameBoard.height = boardSize;
-    tileSize = boardSize / tileCount;
+    const max = 600;
+    const size = Math.min(window.innerWidth, window.innerHeight, max);
+    const dpr = window.devicePixelRatio || 1;
+    gameBoard.width = size * dpr;
+    gameBoard.height = size * dpr;
+    gameBoard.style.width = `${size}px`;
+    gameBoard.style.height = `${size}px`;
+    ctx.scale(dpr, dpr);
+    tileSize = size / tileCount;
     drawGame();
 }
+
+window.addEventListener('resize', resizeCanvas);
 
 // Main game loop
 function gameLoop(currentTime) {
@@ -186,7 +202,7 @@ function resetGame() {
 // Draw the game elements on the canvas
 function drawGame() {
     ctx.clearRect(0, 0, gameBoard.width, gameBoard.height);
-    ctx.drawImage(backgroundImage, 0, 0, gameBoard.width, gameBoard.height);
+    ctx.drawImage(bgCache, 0, 0, gameBoard.width / (window.devicePixelRatio || 1), gameBoard.height / (window.devicePixelRatio || 1));
     drawSnake();
     drawFood();
     drawEnemies();
