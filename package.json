@@ -4,9 +4,8 @@
   "description": "",
   "main": "controls.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "esbuild snake.js styles.css --bundle --minify --outdir=dist",
-    "lint": "eslint \"**/*.js\"",
+    "build": "rm -rf dist && mkdir dist && cp index.html game.html home.css game.css bg_home.jpg bg_game.jpg dist/ && esbuild snake.js controls.js renderSnake.js --bundle --minify --outdir=dist/js",
+    "lint": "eslint --config .eslintrc.cjs \"**/*.js\"",
     "format": "prettier --write \"**/*.{js,css,html,json,md}\""
   },
   "repository": {
