@@ -24,7 +24,15 @@ header {
 
 h1 {
   color: white;
-  text-shadow: 0 0 10px #ffffd9, 0 0 20px #ffffd9, 0 0 30px #ffffb7, 0 0 40px #ffffb7, 0 0 70px #ffff94, 0 0 80px #ffff94, 0 0 100px #ffff70, 0 0 150px #ffff70;
+  text-shadow:
+    0 0 10px #ffffd9,
+    0 0 20px #ffffd9,
+    0 0 30px #ffffb7,
+    0 0 40px #ffffb7,
+    0 0 70px #ffff94,
+    0 0 80px #ffff94,
+    0 0 100px #ffff70,
+    0 0 150px #ffff70;
 }
 
 h1 a {
@@ -36,7 +44,6 @@ h1 a {
 h1 a:hover {
   text-decoration: none;
 }
-
 
 h1 a:hover span {
   opacity: 0;
@@ -87,8 +94,17 @@ h1 a:hover::before {
 }
 
 @keyframes glow {
-  0%, 100% {
-    text-shadow: 0 0 10px #ffffd9, 0 0 20px #ffffd9, 0 0 30px #ffffb7, 0 0 40px #ffffb7, 0 0 70px #ffff94, 0 0 80px #ffff94, 0 0 100px #ffff70, 0 0 150px #ffff70;
+  0%,
+  100% {
+    text-shadow:
+      0 0 10px #ffffd9,
+      0 0 20px #ffffd9,
+      0 0 30px #ffffb7,
+      0 0 40px #ffffb7,
+      0 0 70px #ffff94,
+      0 0 80px #ffff94,
+      0 0 100px #ffff70,
+      0 0 150px #ffff70;
   }
   50% {
     text-shadow: none;
