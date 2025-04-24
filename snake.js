@@ -257,6 +257,6 @@ function drawGameOver() {
     if (gameOver) {
         ctx.fillStyle = '#fff';
         ctx.font = '24px "Press Start 2P"';
-        ctx.fillText('dead', gameBoard.width / 2 - 35, gameBoard.height / 2);
+        ctx.fillText('dead', gameBoard.clientWidth / 2 - 35, gameBoard.clientHeight / 2);
     }
 }
