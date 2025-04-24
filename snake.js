@@ -19,7 +19,7 @@ let bgCache;
 
 // Load the background image
 const backgroundImage = new Image();
-backgroundImage.src = 'soll.jpg';
+backgroundImage.src = 'bg_game.jpg';
 backgroundImage.onload = startGame;
 
 // Start the game when the background image is loaded
