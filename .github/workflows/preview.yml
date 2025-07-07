@@ -4,20 +4,16 @@ on:
     types: [opened, reopened, synchronize]
 
 permissions:
-  contents: write
+  contents: write          # пушить в gh-pages
+  pull-requests: write     # постить ссылку в PR
 
 jobs:
   deploy-preview:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: |
-          npm ci
-          npm run build          # кладёт результат в ./dist
+
       - uses: rossjrw/pr-preview-action@v1
         with:
-          preview-branch: gh-pages
-          source-dir: ./dist
+          preview-branch: gh-pages   # куда пушим превью
+          source-dir: .              # корень репозитория
