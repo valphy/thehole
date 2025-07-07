@@ -3,20 +3,21 @@ on:
   pull_request:
     types: [opened, reopened, synchronize]
 
+permissions:
+  contents: write
+
 jobs:
   deploy-preview:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
       - run: |
           npm ci
-          npm run build        # собирает ./dist
-
+          npm run build          # кладёт результат в ./dist
       - uses: rossjrw/pr-preview-action@v1
         with:
+          preview-branch: gh-pages
           source-dir: ./dist
-          target-branch: gh-pages
