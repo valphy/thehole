@@ -1,0 +1,19 @@
+name: Deploy PR Preview
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+permissions:
+  contents: write          # пушить в gh-pages
+  pull-requests: write     # постить ссылку в PR
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: rossjrw/pr-preview-action@v1
+        with:
+          preview-branch: gh-pages   # куда пушим превью
+          source-dir: .              # корень репозитория

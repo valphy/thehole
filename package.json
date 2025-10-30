@@ -4,7 +4,7 @@
   "description": "",
   "main": "controls.js",
   "scripts": {
-    "build": "rm -rf dist && mkdir dist && cp index.html game.html home.css game.css bg_home.jpg bg_game.jpg dist/ && esbuild snake.js controls.js renderSnake.js --bundle --minify --outdir=dist/js",
+    "build": "rm -rf dist && mkdir -p dist/js/nsf-player/libgme && cp index.html game.html home.css game.css *.jpg dist/ && cp nes-ui.js dist/js/ && cp nsf-player/index.js dist/js/nsf-player/ && cp nsf-player/libgme/libgme.js dist/js/nsf-player/libgme/ && cp -R music dist/ && esbuild snake.js controls.js renderSnake.js --bundle --minify --outdir=dist/js",
     "lint": "eslint --config .eslintrc.cjs \"**/*.js\"",
     "format": "prettier --write \"**/*.{js,css,html,json,md}\""
   },
