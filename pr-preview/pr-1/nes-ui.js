@@ -9,7 +9,7 @@ if (typeof Module !== 'undefined') {
     document.addEventListener('DOMContentLoaded', () => {
       // 1) Создаём плеер и сразу запускаем трек
       const nsf = createNsfPlayer();               // приходит из index.js
-      nsf.play('music/Legend of Zelda, The (1987-08-22)(Nintendo EAD)(Nintendo).nsf', 0);               // первый трек в .nsf
+      nsf.play('music/legend.nsf', 0);               // первый трек в .nsf
     
       // 2) Подмешиваем узел громкости
       if (!nsf.ctx) {
